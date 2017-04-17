@@ -10,20 +10,15 @@ namespace Fizzbuzz
     {
         public static string FizzBuzzInt(int num)
         {
-            if (IsDivisorOfThree(num) && IsDivisorOfFive(num)) { return "FizzBuzz"; }
-            if (IsDivisorOfThree(num)) { return "Fizz"; }
-            if (IsDivisorOfFive(num)) { return "Buzz"; }
+            if (IsDivisableBy(num,3) && IsDivisableBy(num,5)) { return "FizzBuzz"; }
+            if (IsDivisableBy(num,3)) { return "Fizz"; }
+            if (IsDivisableBy(num,5)) { return "Buzz"; }
             return num.ToString();
         }
 
-        private static bool IsDivisorOfThree(int num)
+        private static bool IsDivisableBy(int num,int divisor)
         {
-            return num % 3 == 0;
-        }
-
-        private static bool IsDivisorOfFive(int num)
-        {
-            return num % 5 == 0;
+            return num % divisor == 0;
         }
     }
 }
